@@ -9,12 +9,20 @@ body {
 main {
   max-width: 820px;
   margin: 0 auto;
-  padding: 1px 20px 88px;
+  padding: 56px 20px 88px;
+}
+
+/* font sans untuk judul dan label */
+main h1,
+main h2,
+summary,
+.rel b,
+.rel p {
+  font-family: var(--sans);
 }
 
 main h1 {
   margin: 0 0 16px;
-  font-family: var(--sans);
   font-size: clamp(2rem, 4vw, 2.7rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -24,7 +32,6 @@ main h1 {
 
 main h2 {
   margin: 48px 0 12px;
-  font-family: var(--sans);
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -45,22 +52,18 @@ main p {
   padding: 28px;
   border-radius: 20px;
   background: var(--d);
-  color: #fff;
-}
-
-.fokus h2,
-.fokus p {
-  margin: 0;
-  color: #fff;
 }
 
 .fokus h2 {
-  margin-bottom: 6px;
+  margin: 0 0 6px;
   font-size: 1.4rem;
+  color: #fff;
 }
 
 .fokus p {
+  margin: 0;
   font-size: 0.95rem;
+  color: #fff;
   opacity: 0.9;
 }
 
@@ -99,7 +102,6 @@ summary {
   align-items: center;
   gap: 14px;
   padding: 18px 22px;
-  font-family: var(--sans);
   font-size: 1.02rem;
   font-weight: 600;
   color: var(--d);
@@ -160,9 +162,7 @@ details p {
 .rel b {
   display: block;
   margin-bottom: 8px;
-  font-family: var(--sans);
   font-size: 0.78rem;
-  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--g);
@@ -170,8 +170,6 @@ details p {
 
 .rel p {
   margin: 0;
-  font-family: var(--sans);
-  font-size: 1rem;
   font-weight: 600;
   line-height: 1.45;
   color: var(--d);
@@ -185,7 +183,6 @@ details p {
   border-radius: 16px;
   background: var(--l);
   font-size: 0.95rem;
-  line-height: 1.7;
 }
 
 /* tampilan HP */
