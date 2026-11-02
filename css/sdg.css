@@ -1,23 +1,45 @@
-/* narrower column for reading text: overrides max-width from global.css (1000px).
-   margin: auto and the 5% side padding come from global.css, only top/bottom here */
+/* ==========================================================
+   sdg.css
+   Styles only for the "About SDGs" page.
+   global.css loads first, so this file only adds or overrides
+   what is specific to this page.
+   Colors come from variables defined in global.css:
+   --d dark green, --g green, --y yellow, --l light green
+   ========================================================== */
+
+
+/* ---------- Layout and titles ---------- */
+
+/* A narrower column (860px instead of the global 1000px) because this
+   page is mostly text, and shorter lines are easier to read.
+   Centering (margin: auto) and the 5% side padding still come from
+   global.css, so only top and bottom padding are set here. */
 main section {
   max-width: 860px;
   padding-top: 56px;
   padding-bottom: 88px;
 }
 
-/* page title (size is set in rem, same as renewable.css and home.css) */
+/* Page title. rem units: 1rem = 16px, so 2.8rem is about 45px.
+   Same sizes as renewable.css and home.css, so all pages match. */
 main h1 {
   margin: 0 0 16px;
   font-size: 2.8rem;
 }
 
-/* global.css gives h2 margin-top: 2em, only the bottom is set here */
+/* global.css gives every h2 a top margin of 2em.
+   Only the bottom margin is changed here. */
 main h2 {
   margin-bottom: 12px;
 }
 
-/* SDG 7 focus box */
+
+/* ---------- SDG 7 focus box ---------- */
+
+/* The dark green box with the yellow "7" badge and the text.
+   display: flex = badge and text sit side by side.
+   align-items: center = both are centered vertically.
+   gap = space between them. */
 .fokus {
   display: flex;
   gap: 22px;
@@ -28,6 +50,8 @@ main h2 {
   background: var(--d);
 }
 
+/* Text inside the box is white because the background is dark.
+   margin: 0 0 6px cancels the h2 top margin from global.css. */
 .fokus h2 {
   margin: 0 0 6px;
   font-size: 1.4rem;
@@ -38,9 +62,14 @@ main h2 {
   margin: 0;
   font-size: 0.95rem;
   color: #fff;
-  opacity: 0.9;
+  opacity: 0.9;   /* slightly see-through so it looks softer than the title */
 }
 
+/* The yellow square with the number 7.
+   flex: none = the badge never shrinks when the text is long.
+   display: grid + place-items: center = the number is centered
+   both horizontally and vertically.
+   font shorthand: weight 800, size 2.6rem, font family. */
 .badge {
   flex: none;
   display: grid;
@@ -53,24 +82,36 @@ main h2 {
   font: 800 2.6rem "Trebuchet MS", sans-serif;
 }
 
-/* target list: overrides padding, border and radius of details from global.css */
+
+/* ---------- Target list (click to open) ---------- */
+
+/* <details> is the expandable box. global.css already gives it a
+   background, border and padding. Here the look is changed:
+   padding: 0 because spacing is moved to <summary> and <p> below.
+   overflow: hidden keeps the content inside the rounded corners.
+   transition animates the border and shadow changes. */
 details {
-  padding: 0; /* spacing is moved to summary and p below */
+  padding: 0;
   border: 1px solid #e1e9dc;
   border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+/* Border turns green when the mouse is over the box. */
 details:hover {
   border-color: var(--g);
 }
 
+/* [open] = the box is currently expanded. It gets a soft shadow. */
 details[open] {
   box-shadow: 0 8px 24px rgba(31, 58, 38, 0.08);
 }
 
-/* font, color and cursor of summary already come from global.css */
+/* <summary> is the clickable title row ("7.1 Energy access for all").
+   Font, color and pointer cursor already come from global.css.
+   display: flex lets the "+" sign be pushed to the far right.
+   list-style: none hides the default triangle (Firefox, Chrome). */
 summary {
   display: flex;
   align-items: center;
@@ -79,11 +120,14 @@ summary {
   list-style: none;
 }
 
-/* both lines are needed to hide the default arrow in all browsers */
+/* Hides the default triangle in Safari. Both this line and
+   list-style: none are needed so it works in all browsers. */
 summary::-webkit-details-marker {
   display: none;
 }
 
+/* A custom "+" sign added after the title text.
+   margin-left: auto pushes it all the way to the right. */
 summary::after {
   content: "+";
   margin-left: auto;
@@ -93,30 +137,44 @@ summary::after {
   color: var(--g);
 }
 
+/* When the box is open, "+" changes to "−".
+   "\2212" is the code for the minus sign. */
 details[open] summary::after {
   content: "\2212";
 }
 
-/* margin-right reset because the spacing now comes from the gap above */
+/* The number label (7.1, 7.2, ...).
+   min-width keeps all labels the same width so the titles line up.
+   margin-right: 0 cancels the margin from global.css,
+   because the space now comes from the gap in summary. */
 summary b {
   min-width: 36px;
   margin-right: 0;
   font-size: 0.9rem;
 }
 
-/* left padding 72px = 22px + 36px (summary b) + 14px (gap), so the text lines up with the title */
+/* The explanation text inside the box.
+   padding: top 0, right 22px, bottom 20px, left 72px.
+   72px = 22px (summary padding) + 36px (label width) + 14px (gap),
+   so the text starts exactly under the title, not under the number. */
 details p {
   margin: 0;
   padding: 0 22px 20px 72px;
 }
 
-/* related goals cards */
+
+/* ---------- Related goals cards ---------- */
+
+/* repeat(auto-fit, minmax(200px, 1fr)) = as many columns as fit,
+   each at least 200px wide. On small screens the cards wrap to
+   the next row automatically, so no media query is needed. */
 .rel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 14px;
 }
 
+/* One card. transition makes the hover effect smooth. */
 .rel div {
   padding: 22px;
   border: 1px solid #e1e9dc;
@@ -125,17 +183,22 @@ details p {
   transition: border-color 0.2s, transform 0.2s;
 }
 
+/* Hover: green border and the card moves 3px up. */
 .rel div:hover {
   border-color: var(--g);
   transform: translateY(-3px);
 }
 
-/* sans-serif for labels, body text elsewhere stays Georgia from global.css */
+/* The body font is Georgia (serif). These two use Trebuchet MS
+   (sans-serif) so the labels look different from normal text. */
 .rel b,
 .rel p {
   font-family: "Trebuchet MS", sans-serif;
 }
 
+/* Small label ("SDG 11"). <b> is inline by default,
+   display: block lets it have a bottom margin.
+   letter-spacing + uppercase gives the label style. */
 .rel b {
   display: block;
   margin-bottom: 8px;
@@ -145,6 +208,7 @@ details p {
   color: var(--g);
 }
 
+/* The goal name ("Climate action"). */
 .rel p {
   margin: 0;
   font-weight: 600;
@@ -152,7 +216,12 @@ details p {
   color: var(--d);
 }
 
-/* source note box: own class so it doesn't mix with .note from global.css */
+
+/* ---------- Source note ---------- */
+
+/* The box at the bottom with the UN link.
+   Own class (.sdg-note) so it does not mix with .note from global.css.
+   The background is written here so it does not depend on global.css. */
 .sdg-note {
   margin-top: 32px;
   padding: 18px 22px;
@@ -162,6 +231,11 @@ details p {
   font-size: 0.95rem;
 }
 
+
+/* ---------- Accessibility ---------- */
+
+/* For people who turn on "reduce motion" in their device settings,
+   the hover animations are switched off. */
 @media (prefers-reduced-motion: reduce) {
   details,
   .rel div {
@@ -173,14 +247,17 @@ details p {
   }
 }
 
-/* tablet (same breakpoint as home.css and renewable.css) */
+
+/* ---------- Responsive ---------- */
+
+/* Tablet: screens up to 960px wide. Only the title gets smaller. */
 @media (max-width: 960px) {
   main h1 {
     font-size: 2.2rem;
   }
 }
 
-/* phone (same breakpoint as home.css and renewable.css) */
+/* Phone: screens up to 700px wide. */
 @media (max-width: 700px) {
   main h1 {
     font-size: 1.8rem;
@@ -191,12 +268,16 @@ details p {
     padding-bottom: 64px;
   }
 
+  /* Badge goes above the text instead of beside it.
+     flex-direction: column = stack vertically. */
   .fokus {
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
   }
 
+  /* The 72px left padding is too wide on a small screen,
+     so the text starts at the normal left edge. */
   details p {
     padding-left: 22px;
   }

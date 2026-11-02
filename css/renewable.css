@@ -1,25 +1,49 @@
-/* page background: same gradient as the tips page */
+/* ==========================================================
+   renewable.css
+   Styles only for the Renewable Energy page.
+   global.css loads first (colors, fonts, nav, footer), so this
+   file only adds or overrides what is specific to this page.
+   Colors come from variables defined in global.css:
+   --d dark green, --g green, --y yellow, --l light green, --c cream
+   ========================================================== */
+
+
+/* ---------- Page background ---------- */
+
+/* Gradient background on <main>.
+   135deg = diagonal direction (top-left to bottom-right).
+   The numbers (0%, 55%, 100%) are where each color sits along the line. */
 main {
   background: linear-gradient(135deg, var(--c) 0%, var(--l) 55%, #e4eefa 100%);
 }
 
-/* removes the gap between the gradient and the footer */
+/* global.css puts a 50px gap above the footer.
+   Setting it to 0 makes the gradient touch the footer. */
 footer {
   margin-top: 0;
 }
 
-/* global.css already sets width and side padding, only top/bottom here */
+/* global.css already sets max-width, centering and side padding for <section>.
+   Only the top and bottom padding are changed here. */
 main section {
   padding-top: 64px;
   padding-bottom: 96px;
 }
 
-/* page title with yellow bar (size is set in rem, same as home.css) */
+
+/* ---------- Page title ---------- */
+
+/* Title size in rem (1rem = 16px, so 2.8rem is about 45px).
+   margin: 0 0 12px = top 0, sides 0, bottom 12px. */
 main h1 {
   margin: 0 0 12px;
   font-size: 2.8rem;
 }
 
+/* The yellow bar under the title.
+   ::after creates an extra element after the h1 text, without extra HTML.
+   content: "" is required, otherwise ::after does not appear.
+   display: block makes it a box so width and height work. */
 main h1::after {
   content: "";
   display: block;
@@ -30,16 +54,24 @@ main h1::after {
   background: var(--y);
 }
 
-/* header with photo */
+
+/* ---------- Hero (header with photo) ---------- */
+
 .re-hero {
-  /* header photo: change the file name here */
+  /* A custom variable that stores the photo path.
+     To change the photo, only edit this line. */
   --re-hero-image: url("/img/renewable-hero.jpg");
 
+  /* display: flex + align-items: center = content centered vertically */
   display: flex;
   align-items: center;
   min-height: 420px;
   padding: 80px 0;
-  /* layer order: gradient on top, photo below, solid color as fallback */
+
+  /* Three background layers, the first one is drawn on top:
+     1) dark green gradient (dark on the left so white text is readable)
+     2) the photo: center / cover = centered and fills the area, no-repeat
+     3) solid dark green, shown if the photo fails to load */
   background:
     linear-gradient(
       90deg,
@@ -51,7 +83,10 @@ main h1::after {
     var(--d);
 }
 
-/* same width and side padding as the section, so the text lines up with the cards */
+/* Wrapper for the hero text.
+   Same max-width and side padding as <section>, so the hero text
+   lines up with the cards below.
+   margin: 0 auto = centered horizontally. */
 .re-hero-content {
   width: 100%;
   max-width: 1000px;
@@ -59,17 +94,21 @@ main h1::after {
   padding: 0 5%;
 }
 
+/* Small yellow label above the title ("SDG 7 · Target 7.2").
+   <span> is inline by default, display: block lets it have a bottom margin. */
 .re-hero-label {
   display: block;
   margin-bottom: 12px;
   font-family: "Trebuchet MS", sans-serif;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1.6px;
+  letter-spacing: 1.6px;   /* space between letters */
   text-transform: uppercase;
   color: var(--y);
 }
 
+/* White text because the hero background is dark.
+   max-width keeps the lines short and easy to read. */
 .re-hero h1 {
   max-width: 560px;
   color: #fff;
@@ -81,7 +120,13 @@ main h1::after {
   color: #fff;
 }
 
-/* cards */
+
+/* ---------- Cards ---------- */
+
+/* The grid that holds all the cards.
+   repeat(3, 1fr) = 3 equal columns. gap = space between cards.
+   --re-card-padding is a variable used in several places below,
+   so the value only has to be changed once. */
 .src {
   --re-card-padding: 24px;
 
@@ -90,32 +135,44 @@ main h1::after {
   gap: 20px;
 }
 
+/* One card.
+   flex + column = children (photo, title, text) stack vertically.
+   gap = space between those children. */
 .src article {
-  /* needed so the tag can be positioned inside the card */
+  /* position: relative lets the tag be positioned inside this card */
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: var(--re-card-padding);
-  /* clips the photo to the rounded corners */
+  /* overflow: hidden cuts the photo at the rounded corners */
   overflow: hidden;
   border-radius: 16px;
   background: var(--d);
   box-shadow: 0 2px 10px rgba(31, 58, 38, 0.08);
+  /* animates the hover effect smoothly over 0.25 seconds */
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover effect: the card lifts 4px up and the shadow gets bigger.
+   translateY(-4px) = move up (negative = up). */
 .src article:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(31, 58, 38, 0.16);
 }
 
-/* featured card (Solar) spans 2 columns */
+/* The first card (Solar) is wider: it takes 2 of the 3 columns. */
 .src article:first-child {
   grid-column: span 2;
 }
 
-/* photo: stretches to the card edges and is cropped to the same height */
+/* Card photo.
+   The card has 24px padding, so the photo would normally have a gap
+   around it. The trick to make it touch the card edges:
+   - width: 100% + 48px (padding left + right) makes it wider
+   - negative margin on top, left, right pulls it outward
+   - max-width: none cancels the global rule img { max-width: 100% }
+   object-fit: cover crops the photo to fill the box without stretching. */
 .src-img {
   display: block;
   width: calc(100% + var(--re-card-padding) * 2);
@@ -123,38 +180,49 @@ main h1::after {
   height: 160px;
   margin: calc(var(--re-card-padding) * -1) calc(var(--re-card-padding) * -1) 6px;
   object-fit: cover;
-  background: var(--l);
+  background: var(--l);  /* shown while the photo is loading */
 }
 
+/* The Solar photo is taller because the card is bigger. */
 .src article:first-child .src-img {
   height: 240px;
 }
 
-/* card title: h2 (no skipped heading level), margin reset because global.css gives h2 a top margin */
+/* Card title. It is an <h2> (not h3) so the heading order is
+   h1, h2 with no skipped level.
+   margin: 0 cancels the margin-top: 2em that global.css gives to h2. */
 .src h2 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.125rem;   /* 18px */
   line-height: 1.3;
   color: #fff;
 }
 
 .src article:first-child h2 {
-  font-size: 1.5rem;
+  font-size: 1.5rem;     /* 24px */
 }
 
+/* The thin line between title and text.
+   border: 0 removes the default 3D look, then only a top line is drawn. */
 .src hr {
   margin: 0;
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+/* Card text: white because the card background is dark green. */
 .src p {
   margin: 0;
   color: #fff;
   line-height: 1.6;
 }
 
-/* tag: floats on the top-left corner of the photo */
+/* The yellow tag ("Good for home rooftops").
+   position: absolute takes it out of the normal flow and places it
+   relative to the card (which has position: relative).
+   top/left: 16px = 16px from the card's top-left corner,
+   so it floats on top of the photo.
+   border-radius: 999px makes the pill shape. */
 .src-tag {
   position: absolute;
   top: 16px;
@@ -170,7 +238,11 @@ main h1::after {
   color: var(--d);
 }
 
-/* source note box: own class so it doesn't mix with .note from global.css */
+
+/* ---------- Source note ---------- */
+
+/* The box at the bottom with the esdm.go.id link.
+   Own class (.re-note) so it does not mix with .note from global.css. */
 .re-note {
   margin-top: 32px;
   padding: 18px 22px;
@@ -180,6 +252,11 @@ main h1::after {
   font-size: 0.95rem;
 }
 
+
+/* ---------- Accessibility ---------- */
+
+/* Some people turn on "reduce motion" in their device settings.
+   For them the hover animation is switched off. */
 @media (prefers-reduced-motion: reduce) {
   .src article {
     transition: none;
@@ -190,7 +267,11 @@ main h1::after {
   }
 }
 
-/* tablet (same breakpoint as home.css) */
+
+/* ---------- Responsive ---------- */
+
+/* Tablet: screens up to 960px wide.
+   Smaller title, cards in 2 columns instead of 3. */
 @media (max-width: 960px) {
   main h1 {
     font-size: 2.2rem;
@@ -201,7 +282,8 @@ main h1::after {
   }
 }
 
-/* phone (same breakpoint as home.css) */
+/* Phone: screens up to 700px wide.
+   Smaller title and spacing, cards in 1 column. */
 @media (max-width: 700px) {
   main h1 {
     font-size: 1.8rem;
@@ -221,6 +303,8 @@ main h1::after {
     grid-template-columns: 1fr;
   }
 
+  /* With only 1 column, "span 2" would break the layout,
+     so the Solar card goes back to normal width. */
   .src article:first-child {
     grid-column: auto;
   }
