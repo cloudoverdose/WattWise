@@ -18,7 +18,7 @@ body {
   padding: 110px max(5%, calc((100vw - 1000px) / 2));
   background:
     linear-gradient(90deg, #1f3a26eb 0%, rgba(31, 58, 38, 0.75) 45%, rgba(31, 58, 38, 0.1) 100%),
-    url("/nadin/imgs/background.jpg") center / cover no-repeat;
+    url("/img/background.jpg") center / cover no-repeat;
 }
 
 .ht {
