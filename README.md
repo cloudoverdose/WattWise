@@ -16,7 +16,15 @@ Website edukasi SDG 7 (Energi Bersih dan Terjangkau): hemat energi dan rumah ram
 - solar panel : https://www.pexels.com/photo/modern-home-with-rooftop-solar-panels-29206495/
 - ac remote : https://id.pinterest.com/pin/1009580441491432498/
 - led : https://www.pexels.com/photo/person-holding-white-light-bulb-3946161/
+- solar.jpg : Photo by Adrinil Dennis from Pexels: https://www.pexels.com/photo/solar-panel-closeup-27873610/
+- hydro.jpg : Photo by Baro from Pexels: https://www.pexels.com/photo/scenic-view-of-flowing-river-on-a-forest-14942582/
+- wind.jpg : Photo by Ahsen from Pexels: https://www.pexels.com/photo/wind-turbines-on-the-horizon-7763083/
+- geothermal.jpg : Photo by Raul Ling from Pexels: https://www.pexels.com/photo/stunning-geothermal-landscape-in-iceland-31992416/
+- biomass.jpg : Photo by Nejc Parašuh from Pexels: https://www.pexels.com/photo/golden-ripe-wheat-17228686/
+- renewable-hero.jpg : Photo by Johannes Plenio: https://www.pexels.com/photo/green-forest-1776267/
 
 ## Data Sources
 
-- (Tambahkan sumber, misalnya sdgs.un.org, Kementerian ESDM.)
+- Indonesia's renewable energy mix data: [esdm.go.id](https://www.esdm.go.id)
+- [UN: SDG 7](https://sdgs.un.org/goals/goal7)
+- [Bappenas SDGs](https://sdgs.bappenas.go.id)
