@@ -6,10 +6,10 @@ SDG 7
 ## Group Members
 
 Name - Student ID - Contribution
-Ni Putu Febby Cahya Anggariani - 2515091048 - Created dampak.html, dampak.css, rumah-hijau.html, rumah.css
-Putu Nadin Saskirani Putri - 2515091065 - Created the GitHub repository, built the homepage (HTML and CSS), built global.css, wrote the README text
-Ni Kadek Nina Riti Angguni - 2515091086 - Created energi-terbarukan.html, renewable.css, tentang-sdg.html, sdg.css
-Kadek Denis Krisna Febrian - 2515091099 - Created tips.html, about-us.html, tips.css, about-us.css
+1. Ni Putu Febby Cahya Anggariani - 2515091048 - Created dampak.html, dampak.css, rumah-hijau.html, rumah.css
+2. Putu Nadin Saskirani Putri - 2515091065 - Created the GitHub repository, built the homepage (HTML and CSS), built global.css, wrote the README text
+3. Ni Kadek Nina Riti Angguni - 2515091086 - Created energi-terbarukan.html, renewable.css, tentang-sdg.html, sdg.css
+4. Kadek Denis Krisna Febrian - 2515091099 - Created tips.html, about-us.html, tips.css, about-us.css
 
 ## Website Description
 
@@ -192,8 +192,8 @@ WattWise/
 - renewable-hero.jpg: Photo by Johannes Plenio from Pexels, https://www.pexels.com/photo/green-forest-1776267/
 
 ## Website and Repository
-URL Github Pages: https://cloudoverdose.github.io/WattWise/
-URL Repository: https://github.com/cloudoverdose/WattWise.git
+  URL Github Pages: https://cloudoverdose.github.io/WattWise/
+  URL Repository: https://github.com/cloudoverdose/WattWise.git
 
 ### Data Sources
 
