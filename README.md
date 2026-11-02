@@ -192,8 +192,8 @@ WattWise/
 - renewable-hero.jpg: Photo by Johannes Plenio from Pexels, https://www.pexels.com/photo/green-forest-1776267/
 
 ## Website and Repository
-  URL Github Pages: https://cloudoverdose.github.io/WattWise/
-  URL Repository: https://github.com/cloudoverdose/WattWise.git
+- URL Github Pages: https://cloudoverdose.github.io/WattWise/
+- URL Repository: https://github.com/cloudoverdose/WattWise.git
 
 ### Data Sources
 
