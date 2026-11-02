@@ -91,7 +91,7 @@ main h2 + p {
 /* 4-HERO BANNER */
 .tips-hero {
   /* 4.1-Hero photo: change the file name here */
-  --tips-hero-image: url("/img/ecofriendly\ home.jpg");
+  --tips-hero-image: url("../img/ecofriendly\ home.jpg");
 
   display: flex;
   align-items: center;

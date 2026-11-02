@@ -60,7 +60,7 @@ main h1::after {
 .re-hero {
   /* A custom variable that stores the photo path.
      To change the photo, only edit this line. */
-  --re-hero-image: url("/img/renewable-hero.jpg");
+  --re-hero-image: url("../img/renewable-hero.jpg");
 
   /* display: flex + align-items: center = content centered vertically */
   display: flex;
