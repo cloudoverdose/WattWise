@@ -1,27 +1,26 @@
 
-/* ---------- 1. VARIABLES ---------- */
+/* 1-VARIABLES */
 :root {
-  /* aliases of global.css colors */
+  /* 1.1-Aliases of global.css colors */
   --tips-green: var(--g);
   --tips-dark-green: var(--d);
   --tips-yellow: var(--y);
   --tips-light-green: var(--l);
   --tips-page-bg: var(--c);
 
-  /* page-only colors */
+  /* 1.2-Page-only colors */
   --tips-body-text: #3b4a3d;
   --tips-muted-text: #6b7d6b;
   --tips-sky-blue: #e4eefa;
 
-  /* card settings */
+  /* 1.3-Card settings */
   --tips-card-padding: 24px;
   --tips-card-radius: 16px;
-  --tips-card-shadow: 0 2px 10px rgba(31, 58, 38, 0.08);
-  --tips-card-shadow-hover: 0 10px 24px rgba(31, 58, 38, 0.16);
+  --tips-card-shadow: 0 2px 10px #1f3a2614;
+  --tips-card-shadow-hover: 0 10px 24px #1f3a2629;
 }
 
-
-/* ---------- 2. PAGE BACKGROUND + CONTAINER ---------- */
+/* 2-PAGE BACKGROUND + CONTAINER */
 main {
   background: linear-gradient(
     135deg,
@@ -31,25 +30,24 @@ main {
   );
 }
 
-/* remove the gap between the gradient and the footer */
+/* 2.1-Remove the gap between the gradient and the footer */
 footer {
   margin-top: 0;
 }
 
-/* global.css already sets width and side padding, only top/bottom here */
+/* 2.2-global.css already sets width and side padding, only top/bottom here */
 main section {
   padding-top: 64px;
   padding-bottom: 96px;
 }
 
-
-/* ---------- 3. HEADINGS ---------- */
+/* 3-HEADINGS */
 main h1 {
   margin: 0 0 12px;
   font-size: 45px;
 }
 
-/* yellow accent bar under the page title */
+/* 3.1-Yellow accent bar under the page title */
 main h1::after {
   content: "";
   display: block;
@@ -60,7 +58,7 @@ main h1::after {
   background: var(--tips-yellow);
 }
 
-/* section headings: yellow dot + thin divider line */
+/* 3.2-Section headings: yellow dot + thin divider line */
 main h2 {
   display: flex;
   align-items: center;
@@ -81,7 +79,7 @@ main h2::after {
   content: "";
   flex: 1;
   height: 1px;
-  background: rgba(31, 58, 38, 0.18);
+  background: #1f3a262e;
 }
 
 main h2 + p {
@@ -90,22 +88,22 @@ main h2 + p {
 }
 
 
-/* ---------- 4. HERO BANNER ---------- */
+/* 4-HERO BANNER */
 .tips-hero {
-  /* hero photo: change the file name here */
+  /* 4.1-Hero photo: change the file name here */
   --tips-hero-image: url("/img/ecofriendly\ home.jpg");
 
   display: flex;
   align-items: center;
   min-height: 420px;
   padding: 80px 24px;
-  /* layer order: gradient on top, photo below, solid color as fallback */
+  /* 4.2-Layer order: gradient on top, photo below, solid color as fallback */
   background:
     linear-gradient(
       90deg,
-      rgba(31, 58, 38, 0.88) 0%,
-      rgba(31, 58, 38, 0.55) 50%,
-      rgba(31, 58, 38, 0.15) 100%
+      #1f3a26e0 0%,
+      #1f3a268c 50%,
+      #1f3a2626 100%
     ),
     var(--tips-hero-image) center / cover no-repeat,
     var(--tips-dark-green);
@@ -140,22 +138,20 @@ main h2 + p {
 }
 
 
-/* ---------- 5. TIPS CARDS ---------- */
+/* 5-TIPS CARDS */
 .tips-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-
 .tips-list article {
-  /* needed so the SDG tag can be positioned inside the card */
+  /* 5.1-Needed so the SDG tag can be positioned inside the card */
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: var(--tips-card-padding);
-  /* clips the image to the rounded corners */
+  /* 5.2-Clips the image to the rounded corners */
   overflow: hidden;
   border-radius: var(--tips-card-radius);
   background: var(--tips-dark-green);
@@ -189,7 +185,7 @@ main h2 + p {
   border-top: 1px solid #ffffff59;
 }
 
-/* card photo: stretches to the card edges (cancels the card padding) */
+/* 5.3-Card photo: stretches to the card edges (cancels the card padding) */
 .tips-card-img {
   display: block;
   width: calc(100% + var(--tips-card-padding) * 2);
@@ -200,7 +196,7 @@ main h2 + p {
   background: var(--tips-light-green);
 }
 
-/* SDG badge: floats on the top-left corner of the photo */
+/* 5.4-SDG badge: floats on the top-left corner of the photo */
 .sdg-tag {
   position: absolute;
   top: 16px;
@@ -218,7 +214,7 @@ main h2 + p {
 }
 
 
-/* ----- featured card: the first one, dark green, spans 2 columns ----- */
+/* 5.5-Featured card: the first one, dark green, spans 2 columns */
 .tips-list article:first-child {
   grid-column: span 2;
   background: var(--tips-dark-green);
@@ -242,7 +238,7 @@ main h2 + p {
 }
 
 
-/* ---------- 6. WIDE PHOTO BANNER (image: images/banner-tips.jpg) ---------- */
+/* 6-WIDE PHOTO BANNER */
 .tips-banner {
   position: relative;
   margin: 40px 0 0;
@@ -259,12 +255,12 @@ main h2 + p {
   background: var(--tips-dark-green);
 }
 
-/* caption sticks to the bottom edge, with a dark fade behind the text */
+/* 6.1-Caption sticks to the bottom edge, with a dark fade behind the text */
 .tips-banner figcaption {
   position: absolute;
   inset: auto 0 0 0;
   padding: 48px 28px 22px;
-  background: linear-gradient(to top, rgba(31, 58, 38, 0.9), transparent);
+  background: linear-gradient(to top, #1f3a26e6, transparent);
   font-family: "Trebuchet MS", sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -272,8 +268,8 @@ main h2 + p {
 }
 
 
-/* ---------- 7. DAILY HABITS CHECKLIST ---------- */
-/* keeps the heading visible below the sticky navbar after the hero button click */
+/* 7-DAILY HABITS CHECKLIST */
+/* 7.1-Keeps the heading visible below the sticky navbar after the hero button click */
 #checklist {
   scroll-margin-top: 90px;
 }
@@ -320,7 +316,7 @@ main h2 + p {
   transition: color 0.2s ease;
 }
 
-/* checked state: green tint + strikethrough */
+/* 7.2-Checked state: green tint + strikethrough */
 .habit-checklist label:has(input:checked) {
   border-color: var(--tips-green);
   background: var(--tips-light-green);
@@ -332,8 +328,8 @@ main h2 + p {
 }
 
 
-/* ---------- 8. MYTH OR FACT (accordion) ---------- */
-/* resets the padding and border that global.css gives to details */
+/* 8-MYTH OR FACT (accordion) */
+/* 8.1-Resets the padding and border that global.css gives to details */
 details {
   margin: 0 0 12px;
   padding: 0;
@@ -363,12 +359,12 @@ summary {
   list-style: none;
 }
 
-/* hides the default browser arrow */
+/* 8.2-Hides the default browser arrow */
 summary::-webkit-details-marker {
   display: none;
 }
 
-/* custom + / - button */
+/* 8.3-Custom + / - button */
 summary::after {
   content: "+";
   display: grid;
@@ -394,7 +390,7 @@ details p {
   line-height: 1.6;
 }
 
-/* "Myth." / "Fact." badge */
+/* 8.4-"Myth." / "Fact." badge */
 details p b {
   display: inline-block;
   margin-right: 8px;
@@ -409,7 +405,7 @@ details p b {
 }
 
 
-/* ---------- 9. ACCESSIBILITY ---------- */
+/* 9-ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
@@ -417,7 +413,7 @@ details p b {
 }
 
 
-/* ---------- 10. RESPONSIVE ---------- */
+/* 10-RESPONSIVE */
 @media (max-width: 900px) {
   main h1 {
     font-size: 36px;
