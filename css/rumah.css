@@ -13,20 +13,6 @@ body{
   background-attachment:fixed;
 }
 
-.rumah-split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2rem;
-  align-items:stretch;
-  margin:4rem 0 2rem;
-}
-.rumah-split > *{min-width:0}
-.rumah-teks h2{margin-top:0}
-.rumah-teks ul{margin-top:0;margin-bottom:0}
-.rumah-teks li:last-child{margin-bottom:0}
-
-.foto-grid .besar{grid-row:1 / 3}
-
 .tabel-wrap{overflow-x:auto}
 .tabel{width:100%;border-collapse:collapse;margin:1rem 0}
 .tabel th,.tabel td{padding:.7rem .9rem;text-align:center;border-bottom:1px solid rgba(128,128,128,.3)}
