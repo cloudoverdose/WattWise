@@ -1,4 +1,3 @@
-
 /* 1-VARIABLES */
 :root {
   /* 1.1-Aliases of global.css colors */
@@ -42,9 +41,10 @@ main section {
 }
 
 /* 3-HEADINGS */
+/* Font sizes use rem (1rem = 16px): 2.8125rem = 45px */
 main h1 {
   margin: 0 0 12px;
-  font-size: 45px;
+  font-size: 2.8125rem;
 }
 
 /* 3.1-Yellow accent bar under the page title */
@@ -119,7 +119,7 @@ main h2 + p {
   display: block;
   margin-bottom: 12px;
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
@@ -166,7 +166,7 @@ main h2 + p {
 
 .tips-list h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.3;
   color: #fff;
 }
@@ -207,7 +207,7 @@ main h2 + p {
   background: var(--tips-yellow);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--tips-dark-green);
@@ -229,7 +229,7 @@ main h2 + p {
 }
 
 .tips-list article:first-child h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #fff;
 }
 
@@ -262,7 +262,7 @@ main h2 + p {
   padding: 48px 28px 22px;
   background: linear-gradient(to top, #1f3a26e6, transparent);
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
 }
@@ -375,7 +375,7 @@ summary::after {
   border-radius: 16px;
   background: var(--tips-dark-green);
   color: var(--tips-yellow);
-  font-size: 21px;
+  font-size: 1.3125rem;
   line-height: 1;
 }
 
@@ -399,7 +399,7 @@ details p b {
   background: var(--tips-yellow);
   color: var(--tips-dark-green);
   font-family: "Trebuchet MS", sans-serif;
-  font-size: 13px;
+  font-size: 0.8125rem;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -416,7 +416,7 @@ details p b {
 /* 10-RESPONSIVE */
 @media (max-width: 900px) {
   main h1 {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .tips-list {
@@ -426,7 +426,7 @@ details p b {
 
 @media (max-width: 600px) {
   main h1 {
-    font-size: 29px;
+    font-size: 1.8125rem;
   }
 
   main section {
