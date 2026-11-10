@@ -20,20 +20,6 @@ body{
   background-attachment:fixed;
 }
 
-.hero-inner{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:3rem 1.5rem;
-}
-.hero-inner h1{
-  max-width:14ch;
-  font-size:clamp(2.2rem,5vw,3.6rem);
-  line-height:1.1;
-  margin-bottom:1rem;
-}
-.hero-inner p{max-width:38ch;font-size:1.1rem}
-
 .dampak-split{
   display:grid;
   grid-template-columns:1.5fr 1fr;
